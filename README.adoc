@@ -1,1 +1,8 @@
-# Tmux-Demo
+= Tmux-Demo (TechLunch - 20200227)
+
+== What is Tmux?
+
+Tmux, tout comme Screen, est un multiplexeur de terminaux. C'est un outil permettant d'exploiter plusieurs terminaux au sein d'un seul et même affichag de terminal. Concrètement il s'agit de maintenir une session active indépendamment de l'état de l'affichage.
+
+
+
