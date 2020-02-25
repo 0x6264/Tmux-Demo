@@ -5,6 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.8">
+<meta name="author" content="Boris DOLLEY">
 <title>Tmux-Demo (TechLunch - 20200227)</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -429,10 +430,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="article">
 <div id="header">
 <h1>Tmux-Demo (TechLunch - 20200227)</h1>
+<div class="details">
+<span id="author" class="author">Boris DOLLEY</span><br>
+<span id="email" class="email"><a href="mailto:boris.dolley@rte-france.com">boris.dolley@rte-france.com</a></span><br>
+<span id="revnumber">version 1.0,</span>
+<span id="revdate">2020-02-22</span>
+</div>
 </div>
 <div id="content">
 <div class="sect1">
@@ -442,13 +450,32 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Tmux, tout comme Screen, est un multiplexeur de terminaux. C&#8217;est un outil permettant d&#8217;exploiter plusieurs terminaux au sein d&#8217;un seul et même affichage de terminal. Concrètement il s&#8217;agit de maintenir un terminal (une session) actif(ve) indépendamment de l&#8217;état de son affichage.</p>
 </div>
 <div class="paragraph">
-<p>Cas d&#8217;usage typiques :
- - rendre persistant un processus pérenne
- - travailler en // sur plusieurs "écrans"
- - splitter son "écran" (indépendamment du client de Terminal (putty, terminator, etc.)</p>
+<p>Cas d&#8217;usage typiques :</p>
 </div>
-<div class="paragraph">
-<p>ALERT: il ne s&#8217;agit pas d&#8217;un nième utilitaire pour splitter l&#8217;écran du terminal&#8230;&#8203; Le client de terminal sait le faire sans Tmux.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>rendre persistant un processus pérenne</p>
+</li>
+<li>
+<p>travailler en parallèle sur plusieurs "écrans" de terminal</p>
+</li>
+<li>
+<p>splitter son "écran" (indépendamment du client de Terminal (putty, terminator, etc.))</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+il ne s&#8217;agit pas d&#8217;un nième utilitaire pour splitter l&#8217;écran du terminal&#8230;&#8203; Le client de terminal sait le faire sans Tmux.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -468,13 +495,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_utilisation">Utilisation</h3>
-<div class="olist arabic">
-<ol class="arabic">
+<h3 id="_utilisation_locale">Utilisation locale</h3>
+<div class="ulist">
+<ul>
 <li>
-<p>montrer la "survie" d&#8217;une session multiplexée <u>en local</u> sur son laptop (Linux only)</p>
+<p>Par opposition : montrer la "survie" d&#8217;une session multiplexée <u>en local</u> sur son laptop (Linux only)</p>
 </li>
-</ol>
+<li>
+<p>Lancer un pstree pour montrer le rattachement</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -484,28 +514,11 @@ tmux
 
 do CTRL+b c (x2) then CTRL+b p (cycle)
 do CTRL+b " then CTRL+b % then CTRL+b o (cycle)
-do cartourne.sh
+do run cartourne.sh
 do CTRL+b d then tmux ls
 
-Go to Convention then come back then explain</code></pre>
+Go to Convention</code></pre>
 </div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>lancer un pstree pour montrer le rattachement</p>
-</li>
-<li>
-<p>montrer la "survie" d&#8217;une session multiplexé <u>en remote (ssh)</u> sur un serveur distant</p>
-<div class="ulist">
-<ul>
-<li>
-<p>/!\ Tmux doit être installé sur ledit serveur distant</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
 </div>
 </div>
 <div class="sect2">
@@ -513,13 +526,13 @@ Go to Convention then come back then explain</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>La combinaison de touche CTRL+B qui permet d&#8217;exécuter les ordres Tmux (est le <strong>prefixe</strong>)</p>
+<p>La combinaison de touche CTRL+B qui permet d&#8217;exécuter les ordres Tmux s&#8217;appelle le <strong>prefixe</strong> (<strong>prefix</strong>)</p>
 </li>
 <li>
-<p>Tmux lance des <strong>sessions</strong></p>
+<p>Tmux lance des <strong>sessions</strong> (same in english)</p>
 </li>
 <li>
-<p>On s'<strong>atache</strong> ou se <strong>détache</strong> d&#8217;une session</p>
+<p>On s'<strong>attache</strong> ou se <strong>détache</strong> d&#8217;une session (<strong>attach</strong> / <strong>detach</strong>)</p>
 </li>
 <li>
 <p>En status bar on observe l&#8217;existence de <strong>fenêtres</strong> (<strong>windows</strong>)</p>
@@ -527,7 +540,96 @@ Go to Convention then come back then explain</code></pre>
 <li>
 <p>Si on split une fenêtre on parle de <strong>panneaux</strong> (<strong>panes</strong>)</p>
 </li>
+<li>
+<p>La barre en bas s&#8217;appelle la <strong>barre d&#8217;état</strong> (<strong>status-bar</strong>)</p>
+</li>
 </ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_utilisation_distante">Utilisation distante</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Montrer la "survie" d&#8217;une session multiplexé <u>en remote (ssh)</u> sur un serveur distant</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Tmux doit être installé sur ledit serveur distant
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tout_expliquer_de_la_cli">Tout expliquer de la CLI</h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>(ls ; new -t ; attach ; &#8230;&#8203;)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tout_expliquer_des_commandes_prefixed">Tout expliquer des commandes PREFIXED</h3>
+<div class="sect3">
+<h4 id="_parcourir_la_cheatsheet_tmux">Parcourir la CheatSheet Tmux</h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>(all CTRL+b combinaison)</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Commandes dans un Split :</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="icon"><i class="fa fa-comment"></i></span> This is a comment icon</p>
+</div>
+<div class="paragraph">
+<p>===</p>
+</div>
+<div class="paragraph">
+<p>kbd:[F11] suivi de " : Split horizontal du terminal courant en deux + ouverture d’un terminal dans le nouveau panel
+&lt;Ctrl&gt; + &lt;b&gt; suivi de % : Split vertical du terminal courant en deux + ouverture d’un terminal dans le nouveau panel
+&lt;Ctrl&gt; + &lt;b&gt; suivi de o : Switcher entre les terminaux splittés
+&lt;Ctrl&gt; + &lt;b&gt; suivi de space : Changer l’organisation visuelle des terminaux splittés
+&lt;Ctrl&gt; + &lt;b&gt; suivi de (flèches directionnelles) : se déplacer de terminal en terminal
+&lt;Ctrl&gt; + &lt;b&gt; suivi de &lt;Alt&gt; + (flèches directionnelles) : Reduire, agrandir fenêtre du split
+&lt;Ctrl&gt; + &lt;b&gt; suivi de ! : Convertir un split en terminal seul
+&lt;Ctrl&gt; + &lt;b&gt; suivi de q : Afficher les numéros des terminaux splittés</p>
+</div>
+<div class="paragraph">
+<p>===</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lancer_plusieurs_tmux_en_parallèle">Lancer plusieurs Tmux en parallèle</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Voir comment récupérer le select / auto copy / right clic to paste &#8658; perdu par Tmux
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

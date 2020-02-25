@@ -1,8 +1,10 @@
 = Tmux-Demo (TechLunch - 20200227)
+Boris DOLLEY <boris.dolley@rte-france.com>
+v1.0, 2020-02-22 
+:icons: font
 
 :nofooter:
 :toc:
-:icons: font
 
 //:numbered:
 
@@ -11,11 +13,12 @@
 Tmux, tout comme Screen, est un multiplexeur de terminaux. C'est un outil permettant d'exploiter plusieurs terminaux au sein d'un seul et même affichage de terminal. Concrètement il s'agit de maintenir un terminal (une session) actif(ve) indépendamment de l'état de son affichage.
 
 Cas d'usage typiques :
- - rendre persistant un processus pérenne
- - travailler en // sur plusieurs "écrans"
- - splitter son "écran" (indépendamment du client de Terminal (putty, terminator, etc.)
 
-ALERT: il ne s'agit pas d'un nième utilitaire pour splitter l'écran du terminal... Le client de terminal sait le faire sans Tmux.
+- rendre persistant un processus pérenne
+- travailler en parallèle sur plusieurs "écrans" de terminal
+- splitter son "écran" (indépendamment du client de Terminal (putty, terminator, etc.))
+
+WARNING: il ne s'agit pas d'un nième utilitaire pour splitter l'écran du terminal... Le client de terminal sait le faire sans Tmux.
 
 == PRATIQUE - Demo Time
 === Installation sur vos postes
@@ -24,8 +27,9 @@ Lancer les commandes Fedora qui vont bien pour en disposer en séance sur les la
 === Lancer catourne.sh sans Tmux
 Quitter le terminal => le processus pérenne est mort avec la session locale du terminal
 
-=== Utilisation 
-. montrer la "survie" d'une session multiplexée +++<u>en local</u>+++ sur son laptop (Linux only)
+=== Utilisation locale
+* Par opposition : montrer la "survie" d'une session multiplexée +++<u>en local</u>+++ sur son laptop (Linux only)
+* Lancer un pstree pour montrer le rattachement
 
 [source,bash]
 ----
@@ -36,24 +40,62 @@ tmux
 
 do CTRL+b c (x2) then CTRL+b p (cycle) 
 do CTRL+b " then CTRL+b % then CTRL+b o (cycle)
-do cartourne.sh
+do run cartourne.sh
 do CTRL+b d then tmux ls
 
-Go to Convention then come back then explain
+Go to Convention
 
 ----
 
-. lancer un pstree pour montrer le rattachement
-. montrer la "survie" d'une session multiplexé +++<u>en remote (ssh)</u>+++ sur un serveur distant
-* /!\ Tmux doit être installé sur ledit serveur distant
-
 === Partageons quelques conventions de langage
-- La combinaison de touche CTRL+B qui permet d'exécuter les ordres Tmux (est le **prefixe**)
-- Tmux lance des **sessions**
-- On s'**atache** ou se **détache** d'une session
+- La combinaison de touche CTRL+B qui permet d'exécuter les ordres Tmux s'appelle le **prefixe** (**prefix**)
+- Tmux lance des **sessions** (same in english)
+- On s'**attache** ou se **détache** d'une session (**attach** / **detach**)
 - En status bar on observe l'existence de **fenêtres** (**windows**)
 - Si on split une fenêtre on parle de **panneaux** (**panes**)
+- La barre en bas s'appelle la **barre d'état** (**status-bar**)
 
+=== Utilisation distante
+* Montrer la "survie" d'une session multiplexé +++<u>en remote (ssh)</u>+++ sur un serveur distant
+
+WARNING: Tmux doit être installé sur ledit serveur distant
+
+=== Tout expliquer de la CLI 
+****
+(ls ; new -t ; attach ; ...)
+****
+
+=== Tout expliquer des commandes PREFIXED
+==== Parcourir la CheatSheet Tmux
+****
+(all CTRL+b combinaison)
+****
+
+- Commandes dans un Split :
+
+****
+<Ctrl> + <b> suivi de " : Split horizontal du terminal courant en deux + ouverture d’un terminal dans le nouveau panel
+<Ctrl> + <b> suivi de % : Split vertical du terminal courant en deux + ouverture d’un terminal dans le nouveau panel
+<Ctrl> + <b> suivi de o : Switcher entre les terminaux splittés
+<Ctrl> + <b> suivi de space : Changer l’organisation visuelle des terminaux splittés
+<Ctrl> + <b> suivi de (flèches directionnelles) : se déplacer de terminal en terminal
+<Ctrl> + <b> suivi de <Alt> + (flèches directionnelles) : Reduire, agrandir fenêtre du split
+<Ctrl> + <b> suivi de ! : Convertir un split en terminal seul
+<Ctrl> + <b> suivi de q : Afficher les numéros des terminaux splittés
+****
+
+=== Lancer plusieurs Tmux en parallèle
+
+NOTE: Voir comment récupérer le select / auto copy / right clic to paste => perdu par Tmux
+
+=== Commandes simultannées
+
+CTRL+b :setw synchronize-panes on
+
+Ecrira simultanément dans les panes
+
+=== Show OhMyZsh + Tmux pimped
+Changer de user gity => bdo
 
 == Et Screen alors ?
 
