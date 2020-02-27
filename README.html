@@ -438,7 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">Boris DOLLEY</span><br>
 <span id="email" class="email"><a href="mailto:boris.dolley@rte-france.com">boris.dolley@rte-france.com</a></span><br>
-<span id="revnumber">version 1.0,</span>
+<span id="revnumber">version 1.1,</span>
 <span id="revdate">2020-02-22</span>
 </div>
 </div>
@@ -526,7 +526,7 @@ Go to Convention</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>La combinaison de touche CTRL+B qui permet d&#8217;exécuter les ordres Tmux s&#8217;appelle le <strong>prefixe</strong> (<strong>prefix</strong>)</p>
+<p>La combinaison de touche CTRL+b qui permet d&#8217;exécuter les ordres Tmux s&#8217;appelle le <strong>prefixe</strong> (<strong>prefix</strong>)</p>
 </li>
 <li>
 <p>Tmux lance des <strong>sessions</strong> (same in english)</p>
@@ -551,7 +551,7 @@ Go to Convention</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>Montrer la "survie" d&#8217;une session multiplexé <u>en remote (ssh)</u> sur un serveur distant</p>
+<p>Montrer la "survie" d&#8217;une session multiplexée <u>en remote (ssh)</u> sur un serveur distant</p>
 </li>
 </ul>
 </div>
@@ -582,32 +582,12 @@ Tmux doit être installé sur ledit serveur distant
 <h3 id="_tout_expliquer_des_commandes_prefixed">Tout expliquer des commandes PREFIXED</h3>
 <div class="sect3">
 <h4 id="_parcourir_la_cheatsheet_tmux">Parcourir la CheatSheet Tmux</h4>
-<div class="sidebarblock">
-<div class="content">
 <div class="paragraph">
-<p>(all CTRL+b combinaison)</p>
+<p><a href="https://kapeli.com/cheat_sheets/tmux.docset/Contents/Resources/Documents/index">One good CheatSheet</a></p>
 </div>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Commandes dans un Split :</p>
-</li>
-</ul>
-</div>
-<div class="sidebarblock">
+<div class="imageblock">
 <div class="content">
-<div class="paragraph">
-<p>&lt;Ctrl&gt; + &lt;b&gt; suivi de " : Split horizontal du terminal courant en deux + ouverture d’un terminal dans le nouveau panel
-&lt;Ctrl&gt; + &lt;b&gt; suivi de % : Split vertical du terminal courant en deux + ouverture d’un terminal dans le nouveau panel
-&lt;Ctrl&gt; + &lt;b&gt; suivi de o : Switcher entre les terminaux splittés
-&lt;Ctrl&gt; + &lt;b&gt; suivi de space : Changer l’organisation visuelle des terminaux splittés
-&lt;Ctrl&gt; + &lt;b&gt; suivi de (flèches directionnelles) : se déplacer de terminal en terminal
-&lt;Ctrl&gt; + &lt;b&gt; suivi de &lt;Alt&gt; + (flèches directionnelles) : Reduire, agrandir fenêtre du split
-&lt;Ctrl&gt; + &lt;b&gt; suivi de ! : Convertir un split en terminal seul
-&lt;Ctrl&gt; + &lt;b&gt; suivi de q : Afficher les numéros des terminaux splittés</p>
-</div>
+<img src="tmux-cheatsheet.png" alt="tmux cheatsheet">
 </div>
 </div>
 </div>
@@ -630,16 +610,7 @@ Voir comment récupérer le select / auto copy / right clic to paste &#8658; per
 <div class="sect2">
 <h3 id="_commandes_simultannées">Commandes simultannées</h3>
 <div class="paragraph">
-<p>CTRL+b :setw synchronize-panes on</p>
-</div>
-<div class="paragraph">
-<p>Ecrira simultanément dans les panes</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_show_ohmyzsh_tmux_pimped">Show OhMyZsh + Tmux pimped</h3>
-<div class="paragraph">
-<p>Changer de user gity &#8658; bdo</p>
+<p>CTRL+b :setw synchronize-panes on &#8658; écrira simultanément dans les panes</p>
 </div>
 </div>
 </div>
@@ -650,7 +621,9 @@ Voir comment récupérer le select / auto copy / right clic to paste &#8658; per
 <div class="paragraph">
 <p>Screen est super simple mais :
 - Pas de status bar par défaut
-- Pas de fonctionnalité de split screen</p>
+- Pas de fonctionnalité de split screen
+- Préfixe par défaut = CTRL+a qui sert par ailleurs pour revenir en début de ligne en shell
+- Pas de status-bar par défaut dans Screen &#8658; 1ère action à faire dans</p>
 </div>
 <div class="paragraph">
 <p>INFO: une fois qu&#8217;on maîtrise Tmux &#8658; screen c&#8217;est easy. L&#8217;inverse est moins vrai !</p>
