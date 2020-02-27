@@ -48,7 +48,7 @@ Go to Convention
 ----
 
 === Partageons quelques conventions de langage
-- La combinaison de touche CTRL+B qui permet d'exécuter les ordres Tmux s'appelle le **prefixe** (**prefix**)
+- La combinaison de touche CTRL+b qui permet d'exécuter les ordres Tmux s'appelle le **prefixe** (**prefix**)
 - Tmux lance des **sessions** (same in english)
 - On s'**attache** ou se **détache** d'une session (**attach** / **detach**)
 - En status bar on observe l'existence de **fenêtres** (**windows**)
@@ -67,22 +67,9 @@ WARNING: Tmux doit être installé sur ledit serveur distant
 
 === Tout expliquer des commandes PREFIXED
 ==== Parcourir la CheatSheet Tmux
-****
-(all CTRL+b combinaison)
-****
+https://kapeli.com/cheat_sheets/tmux.docset/Contents/Resources/Documents/index[One good CheatSheet]
 
-- Commandes dans un Split :
-
-****
-<Ctrl> + <b> suivi de " : Split horizontal du terminal courant en deux + ouverture d’un terminal dans le nouveau panel
-<Ctrl> + <b> suivi de % : Split vertical du terminal courant en deux + ouverture d’un terminal dans le nouveau panel
-<Ctrl> + <b> suivi de o : Switcher entre les terminaux splittés
-<Ctrl> + <b> suivi de space : Changer l’organisation visuelle des terminaux splittés
-<Ctrl> + <b> suivi de (flèches directionnelles) : se déplacer de terminal en terminal
-<Ctrl> + <b> suivi de <Alt> + (flèches directionnelles) : Reduire, agrandir fenêtre du split
-<Ctrl> + <b> suivi de ! : Convertir un split en terminal seul
-<Ctrl> + <b> suivi de q : Afficher les numéros des terminaux splittés
-****
+image::tmux-cheatsheet.png[]
 
 === Lancer plusieurs Tmux en parallèle
 
@@ -90,17 +77,15 @@ NOTE: Voir comment récupérer le select / auto copy / right clic to paste => pe
 
 === Commandes simultannées
 
-CTRL+b :setw synchronize-panes on
-
-Ecrira simultanément dans les panes
-
-=== Show OhMyZsh + Tmux pimped
-Changer de user gity => bdo
+CTRL+b :setw synchronize-panes on => écrira simultanément dans les panes
 
 == Et Screen alors ?
 
 Screen est super simple mais :
 - Pas de status bar par défaut
 - Pas de fonctionnalité de split screen 
+- Préfixe par défaut = CTRL+a qui sert par ailleurs pour revenir en début de ligne en shell
+- Pas de status-bar par défaut dans Screen => 1ère action à faire dans 
 
 INFO: une fois qu'on maîtrise Tmux => screen c'est easy. L'inverse est moins vrai !
+
