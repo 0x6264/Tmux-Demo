@@ -1,6 +1,6 @@
 = Tmux-Demo (TechLunch - 20200227)
 Boris DOLLEY <boris.dolley@rte-france.com>
-v1.0, 2020-02-22 
+v1.1, 2020-02-22 
 :icons: font
 
 :nofooter:
@@ -56,7 +56,7 @@ Go to Convention
 - La barre en bas s'appelle la **barre d'état** (**status-bar**)
 
 === Utilisation distante
-* Montrer la "survie" d'une session multiplexé +++<u>en remote (ssh)</u>+++ sur un serveur distant
+* Montrer la "survie" d'une session multiplexée +++<u>en remote (ssh)</u>+++ sur un serveur distant
 
 WARNING: Tmux doit être installé sur ledit serveur distant
 
